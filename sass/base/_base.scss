@@ -1,0 +1,41 @@
+@use "../global" as *;
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $base-font;
+  background: $base;
+  color: $gray;
+  font-weight: $bold;
+  overflow-x: hidden; // 横スクロールを防ぐ
+  width: 100vw;
+}
+
+// PCでは電話番号のクリックを無効にする
+a[href^="tel:"] {
+  pointer-events: none;
+  @include mq("md") {
+    pointer-events: auto;
+  }
+}
+
+a {
+  color: $gray;
+  text-decoration: none;
+  display: block;
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+li {
+  list-style: none;
+}
